@@ -1,0 +1,338 @@
+/*
+ * DisplayCostsMain TCSS 342
+ */
+
+package application;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+import structures.BFSSearcher;
+import structures.DFSSearcher;
+import structures.Vertex;
+import structures.WeightedAdjMatrixGraph;
+import structures.WeightedGraph;
+
+/**
+ * A program to display path costs in a weighted directed graph.
+ * 
+ * @author Alan Fowler
+ * @version 1.1
+ */
+public final class DisplayCostsMain {
+
+    /**
+     * A value the user can enter to quit the program.
+     */
+    private static final int QUIT_OPTION = 0;
+
+    /**
+     * The graph used in this program.
+     */
+    private final WeightedGraph<String> myGraph;
+
+    /**
+     * Private constructor to inhibit external instantiation.
+     */
+    private DisplayCostsMain() {
+        myGraph = new WeightedAdjMatrixGraph<String>();
+    }
+
+    /**
+     * The start point for the program.
+     * 
+     * @param theArgs command line arguments - ignored
+     */
+    public static void main(final String[] theArgs) {
+        new DisplayCostsMain().start();
+    }
+
+    /**
+     * Calls various methods to provide program functionality.
+     */
+    private void start() {
+        FileIO.createGraphFromFile(myGraph);
+        final Vertex<String>[] vertices = myGraph.getVertices();
+        
+        // temporarily comment in the next line to display a representation of the graph
+        // System.out.println(myGraph);
+        
+//Finish  
+// report basic statistics correctly
+        System.out.println("The number of vertices in the graph : " + vertices.length);
+        System.out.println("The number of edges in the graph : " + myGraph.getNumberOfEdges());
+
+        // find diameter
+        double diameter = 0;
+//Finish
+// add code here to set diameter correctly or write a helper method to do it
+        diameter = findDiameter(vertices);
+//        final BFSSearcher<String> bfs = new BFSSearcher<String>(myGraph);
+////        final List<Vertex<String>> pathList = bfs.getPath(thePoint1, thePoint2);
+//        
+//        
+//        for (int i = 0; i < vertices.length; i++) {
+//            for (int j = 0; j < vertices.length; j++) {
+//                if (bfs.containsPath(vertices[i], vertices[j])) {
+//                    double tempMax = 0;
+//                    final List<Vertex<String>> pathList = bfs.getPath(vertices[i],
+//                                                                      vertices[j]);
+//                    System.out.println(pathList);
+//                    for (int k = 0; k < pathList.size() - 1; k++) {
+//                        tempMax += myGraph.getEdgeWeight(pathList.get(k), pathList.get(k + 1));
+//                        System.out.println(pathList.get(k) + "->" 
+//                                           + pathList.get(k + 1) + "=" + tempMax);
+////                        System.out.println(myGraph.getEdgeWeight(pathList.get(k), 
+////                                                                 pathList.get(k + 1)));
+//                    }
+//                    if (tempMax > diameter) {
+//    //                    System.out.println(vertices[i] + "+" + vertices[j]);
+//                        diameter = tempMax;
+//                    }
+//                }
+//            }
+//        }
+        
+        System.out.println("The diameter of this graph is : " + diameter);
+
+        // creates a Scanner for keyboard input
+        final Scanner console = new Scanner(System.in);
+        boolean runAgain = true;
+
+        // displays an introduction
+        displayIntro();
+
+        while (runAgain) { // loops until the user chooses to quit
+
+            int from = 0;
+            int to = 0;
+
+            // get the user's choice for a start city
+            from =
+                            promptForChoice(console, "\nChoose a city to start at " + "(1 - "
+                                                     + myGraph.getNumberOfVertices()
+                                                     + ") or enter " + QUIT_OPTION
+                                                     + " to quit the program : ");
+
+            // perform some processing based on the menu choice
+            if (from == QUIT_OPTION) {
+                runAgain = false;
+            } else {
+//Finish
+// edit this to show correct degree for the 'from' city
+                System.out.println(vertices[from - 1] + " has degree " 
+                                + myGraph.getNeighbors(vertices[from - 1]).size() + ".");
+
+                // get the user's choice for an end city
+                to =
+                                promptForChoice(console, "\nChoose a city to end at (1 - "
+                                                         + myGraph.getNumberOfVertices()
+                                                         + ") or " + QUIT_OPTION
+                                                         + " to quit : ");
+            }
+            if (to == QUIT_OPTION) {
+                runAgain = false;
+            } else {
+                displayPathLength(vertices[from - 1], vertices[to - 1]);
+            }
+        }
+        System.out.println("\nThanks for trying this program. Have a nice day.");
+    }
+
+    /**
+     * Displays an introduction to the program.
+     */
+    public void displayIntro() {
+        System.out.println("\nThis program reports the length of "
+                           + "the shortest path between two cities.");
+        System.out.println("The program will repeat until the user chooses to quit.");
+        System.out.println("\nThe cities are:");
+        int city = 1;
+        for (final Vertex<String> name : myGraph.getVertices()) {
+            System.out.printf("%-3d%s\n", city++, name);
+        }
+    }
+
+    /**
+     * Prompts for a menu choice in the range 1 to QUIT_OPTION.
+     * 
+     * @param theConsole a Scanner used to capture user input
+     * @param thePrompt a prompt to the user
+     * @return the number entered by the user
+     */
+    private int promptForChoice(final Scanner theConsole, final String thePrompt) {
+        int choice = getInt(theConsole, thePrompt);
+        while (choice < 0 || choice > myGraph.getNumberOfVertices()) {
+            System.out.println("Invalid selection. Please try again.");
+            choice = getInt(theConsole, thePrompt);
+        }
+        return choice;
+    }
+
+    /**
+     * Prompts for an integer until an integer is entered.
+     * 
+     * This method is adopted from getInt() on page 315 of
+     * "Building Java Programs" by Reges and Stepp
+     * 
+     * @param theConsole a Scanner used to capture user input
+     * @param thePrompt a prompt to the user
+     * @return the integer entered by the user
+     */
+    private int getInt(final Scanner theConsole, final String thePrompt) {
+        System.out.print(thePrompt);
+        while (!theConsole.hasNextInt()) {
+            theConsole.next();
+            System.out.println("Enter an integer. Please try again.");
+            System.out.print(thePrompt);
+        }
+        return theConsole.nextInt();
+    }
+
+    /**
+     * Displays the length of the path from thePoint1 to thePoint2.
+     * 
+     * @param thePoint1 the start point for the path
+     * @param thePoint2 the end point for the path
+     */
+    private void displayPathLength(final Vertex<String> thePoint1,
+                                   final Vertex<String> thePoint2) {
+        
+        double pathLength = 0;
+//Finish
+// add code here to set path_length correctly
+//        final BFSSearcher<String> bfs = new BFSSearcher<String>(myGraph);
+//        final List<Vertex<String>> pathList = bfs.getPath(thePoint1, thePoint2);
+//        for (int i = 0; i < pathList.size() - 1; i++) {
+//            pathLength += myGraph.getEdgeWeight(pathList.get(i), pathList.get(i + 1));
+//        }
+        if (!thePoint1.equals(thePoint2)) {
+            final ArrayList<Vertex<String>> looked = new ArrayList<Vertex<String>>();
+            final List<Vertex<String>> neigh = myGraph.getNeighbors(thePoint1);
+            looked.add(thePoint1);
+            pathLength = findPathLength(thePoint1, thePoint2, looked, 0);
+        }
+        System.out.printf("The distance from " + thePoint1 + " to " + thePoint2 + " is: %,.1f",
+                          pathLength);
+    }
+    
+    
+    /**
+     * Helper method to find diameter of a graph.
+     *
+     * @param theVertices the graph vertices
+     * @return the diameter
+     */
+    private double findDiameter(final Vertex<String>[] theVertices) {
+        double diameter = 0;
+        for (int i = 0; i < theVertices.length; i++) {
+            for (int j = 0; j < theVertices.length; j++) {
+                double tempMax = 0;
+                final ArrayList<Vertex<String>> looked = new ArrayList<Vertex<String>>();
+                looked.add(theVertices[i]);
+                tempMax = findPathLength(theVertices[i], theVertices[j], 
+                                         looked , 0);
+                if (tempMax > diameter) {
+//                    System.out.println(vertices[i] + "+" + vertices[j]);
+                    diameter = tempMax;
+                }
+            }
+        }
+        
+        
+        return diameter;
+        
+//      //Variables
+//        Vertex<String> temp = theVertices[0];
+//        Vertex<String> tempMax = theVertices[0];
+//        double diameter = 0;
+//        List<Vertex<String>> neigh = myGraph.getNeighbors(temp);
+//        final ArrayList<Vertex<String>> looked = new ArrayList<Vertex<String>>();
+//        boolean contGraph = true;
+//        int condition = 0;
+//        looked.add(theVertices[0]);
+//        //Iterate through graph
+//        while (contGraph) {
+//            double edgeMax = 0;
+//            //Check max length for all 
+//            for (int j = 0; j < neigh.size(); j++) {
+//                final double weight = myGraph.getEdgeWeight(temp, neigh.get(j));
+//                if (weight > edgeMax && !looked.contains(neigh.get(j))) {
+//                    edgeMax = weight;
+//                    tempMax = neigh.get(j);
+//                }
+//            }
+//            //Check if we have already checked this node
+//            if (!looked.contains(tempMax)) {
+//                for (int i = 0; i < neigh.size(); i++) {
+//                    looked.add(neigh.get(i));
+//                }
+//                temp = tempMax;
+//                neigh = myGraph.getNeighbors(temp);
+//            }
+//            diameter += edgeMax;
+//            //Check if we added anything yet
+//            if (condition == looked.size()) {
+//                contGraph = false;
+//            }
+//            condition = looked.size();
+//        }
+//        return diameter;
+    }
+    
+    /**
+     * Helper method to find path length using Dijkstra’s algorithm.
+     *
+     * @param thePoint1 the starting
+     * @param thePoint2 the destination
+     * @param theNeigh the neighbors of current node
+     * @param theVisited List of visited nodes 
+     * @param thePath the path total cost
+     * @return the the path total cost
+     */
+    private double findPathLength(final Vertex<String> thePoint1, 
+                                  final Vertex<String> thePoint2, 
+                                  final List<Vertex<String>> theVisited, 
+                                  final double thePath) {
+        final BFSSearcher<String> bfs = new BFSSearcher<String>(myGraph);
+        //should find a way to do this once only
+        if (!bfs.containsPath(thePoint1, thePoint2)) {
+            return 0;
+        }
+        final ArrayList<Vertex<String>> looked = 
+                        new ArrayList<Vertex<String>>(theVisited.size());
+        double pathTot = 0;
+        final Set<Double> storedPaths = new HashSet<Double>();
+        final List<Vertex<String>> neigh = myGraph.getNeighbors(thePoint1);
+        for (final Vertex<String> ver: theVisited) {
+            looked.add(ver);
+        }
+        for (int j = 0; j < neigh.size(); j++) {
+            pathTot = thePath;
+            if (neigh.get(j).equals(thePoint2)) {
+                //Base case
+                looked.add(neigh.get(j));
+                pathTot += myGraph.getEdgeWeight(thePoint1, neigh.get(j));
+            } else if (looked.contains(neigh.get(j))) {
+                //Check if we hit dead end
+                pathTot = Double.MAX_VALUE;
+            } else {
+                //Recursive case
+                looked.add(neigh.get(j));
+                pathTot = findPathLength(neigh.get(j), thePoint2, looked, pathTot);
+                pathTot += myGraph.getEdgeWeight(thePoint1, neigh.get(j));
+            }
+            //Store possible paths in array
+            storedPaths.add(pathTot);
+        }
+        
+        //Choose the smallest path
+        pathTot = Collections.min(storedPaths);
+        return pathTot;
+    }
+
+}

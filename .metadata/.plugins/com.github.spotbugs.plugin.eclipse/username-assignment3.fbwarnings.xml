@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.1.10" sequence="2" timestamp="1550814724035" analysisTimestamp="1550814720196" release="">
+  <Project projectName="username-assignment3">
+    <Jar>C:\Users\trang\CSS-342\username-assignment3\bin\snippet</Jar>
+    <AuxClasspathEntry>C:\Users\trang\CSS-342\username-assignment3\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\trang\.p2\pool\plugins\org.junit_4.12.0.v201504281640\junit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\trang\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_151\lib\rt.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_151\lib\jce.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\trang\CSS-342\username-assignment3\src</SrcDir>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="programs.PostfixTesterMain">
+      <SourceLine classname="programs.PostfixTesterMain" sourcefile="PostfixTesterMain.java" sourcepath="programs/PostfixTesterMain.java"/>
+    </Class>
+    <Method classname="programs.PostfixTesterMain" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="programs.PostfixTesterMain" start="41" end="79" startBytecode="0" endBytecode="443" sourcefile="PostfixTesterMain.java" sourcepath="programs/PostfixTesterMain.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner"/>
+    </Method>
+    <SourceLine classname="programs.PostfixTesterMain" start="41" end="41" startBytecode="7" endBytecode="7" sourcefile="PostfixTesterMain.java" sourcepath="programs/PostfixTesterMain.java"/>
+    <SourceLine classname="programs.PostfixTesterMain" start="41" end="41" startBytecode="7" endBytecode="7" sourcefile="PostfixTesterMain.java" sourcepath="programs/PostfixTesterMain.java"/>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" first="1">
+    <Class classname="structures.AbstractArrayList">
+      <SourceLine classname="structures.AbstractArrayList" sourcefile="AbstractArrayList.java" sourcepath="structures/AbstractArrayList.java"/>
+    </Class>
+    <Method classname="structures.AbstractArrayList" name="toString" signature="()Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="structures.AbstractArrayList" start="255" end="261" startBytecode="0" endBytecode="161" sourcefile="AbstractArrayList.java" sourcepath="structures/AbstractArrayList.java"/>
+    </Method>
+    <SourceLine classname="structures.AbstractArrayList" start="259" end="259" startBytecode="8" endBytecode="8" sourcefile="AbstractArrayList.java" sourcepath="structures/AbstractArrayList.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 21 Feb 2019 21:51:59 -0800" total_classes="1" referenced_classes="11" total_bugs="2" total_size="5" num_packages="3" java_version="1.8.0_151" vm_version="25.151-b12" cpu_seconds="2.12" clock_seconds="3.90" peak_mbytes="573.34" alloc_mbytes="1024.00" gc_seconds="0.01" priority_2="1" priority_1="1">
+    <PackageStats package="snippet" total_bugs="0" total_types="1" total_size="5">
+      <ClassStats class="snippet.Snippet" sourceFile="Snippet.java" interface="false" size="5" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="3654" invocations="2" avgMicrosecondsPerInvocation="1827168" maxMicrosecondsPerInvocation="2179031" standardDeviationMicrosecondsPerInvocation="351865"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1550372049376" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1550372049379" release="" codeSize="533" numClasses="17"/>
+  </History>
+</BugCollection>

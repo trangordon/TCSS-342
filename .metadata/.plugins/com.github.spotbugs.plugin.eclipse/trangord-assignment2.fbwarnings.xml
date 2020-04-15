@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.1.10" sequence="1" timestamp="1551979895410" analysisTimestamp="1551979894878" release="">
+  <Project projectName="trangord-assignment2">
+    <Jar>C:\Users\trang\CSS-342\trangord-assignment2\bin</Jar>
+    <AuxClasspathEntry>C:\Users\trang\CSS-342\trangord-assignment2\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\trang\.p2\pool\plugins\org.junit_4.12.0.v201504281640\junit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\trang\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_201\lib\rt.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_201\lib\jce.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\trang\CSS-342\trangord-assignment2\src</SrcDir>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="applications.RadixSort">
+      <SourceLine classname="applications.RadixSort" sourcefile="RadixSort.java" sourcepath="applications/RadixSort.java"/>
+    </Class>
+    <Method classname="applications.RadixSort" name="fileWriter" signature="(Lstructures/LinkedOutputRestrictedDeque;)V" isStatic="true">
+      <SourceLine classname="applications.RadixSort" start="83" end="89" startBytecode="0" endBytecode="158" sourcefile="RadixSort.java" sourcepath="applications/RadixSort.java"/>
+    </Method>
+    <Method classname="java.io.FileWriter" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileWriter"/>
+    </Method>
+    <SourceLine classname="applications.RadixSort" start="83" end="83" startBytecode="10" endBytecode="10" sourcefile="RadixSort.java" sourcepath="applications/RadixSort.java"/>
+    <SourceLine classname="applications.RadixSort" start="83" end="83" startBytecode="10" endBytecode="10" sourcefile="RadixSort.java" sourcepath="applications/RadixSort.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="applications.RadixSort">
+      <SourceLine classname="applications.RadixSort" sourcefile="RadixSort.java" sourcepath="applications/RadixSort.java"/>
+    </Class>
+    <Method classname="applications.RadixSort" name="radixSort" signature="(Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="applications.RadixSort" start="33" end="74" startBytecode="0" endBytecode="650" sourcefile="RadixSort.java" sourcepath="applications/RadixSort.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/File;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner"/>
+    </Method>
+    <SourceLine classname="applications.RadixSort" start="35" end="35" startBytecode="15" endBytecode="15" sourcefile="RadixSort.java" sourcepath="applications/RadixSort.java"/>
+    <SourceLine classname="applications.RadixSort" start="35" end="35" startBytecode="15" endBytecode="15" sourcefile="RadixSort.java" sourcepath="applications/RadixSort.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 7 Mar 2019 09:30:12 -0800" total_classes="9" referenced_classes="54" total_bugs="2" total_size="183" num_packages="4" java_version="1.8.0_201" vm_version="25.201-b09" cpu_seconds="2.31" clock_seconds="0.53" peak_mbytes="927.22" alloc_mbytes="1024.00" gc_seconds="0.02" priority_1="2">
+    <PackageStats package="applications" total_bugs="2" total_types="2" total_size="45" priority_1="2">
+      <ClassStats class="applications.RadixSort" sourceFile="RadixSort.java" interface="false" size="38" bugs="2" priority_1="2"/>
+      <ClassStats class="applications.RadixSortDemo" sourceFile="RadixSortDemo.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="exceptions" total_bugs="0" total_types="1" total_size="5">
+      <ClassStats class="exceptions.EmptyCollectionException" sourceFile="EmptyCollectionException.java" interface="false" size="5" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="structures" total_bugs="0" total_types="5" total_size="81">
+      <ClassStats class="structures.LinkedOutputRestrictedDeque" sourceFile="LinkedOutputRestrictedDeque.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="structures.LinkedQueue" sourceFile="LinkedQueue.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="structures.LinkedQueue$Node" sourceFile="LinkedQueue.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="structures.OutputRestrictedDequeADT" sourceFile="OutputRestrictedDequeADT.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="structures.QueueADT" sourceFile="QueueADT.java" interface="true" size="6" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="tests" total_bugs="0" total_types="1" total_size="52">
+      <ClassStats class="tests.LinkedOutputRestrictedDequeUnitTest" sourceFile="LinkedOutputRestrictedDequeUnitTest.java" interface="false" size="52" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="111" invocations="530" avgMicrosecondsPerInvocation="210" maxMicrosecondsPerInvocation="16984" standardDeviationMicrosecondsPerInvocation="831"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="68" invocations="293" avgMicrosecondsPerInvocation="233" maxMicrosecondsPerInvocation="67062" standardDeviationMicrosecondsPerInvocation="3910"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="52" invocations="2" avgMicrosecondsPerInvocation="26336" maxMicrosecondsPerInvocation="42009" standardDeviationMicrosecondsPerInvocation="15673"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="40" invocations="532" avgMicrosecondsPerInvocation="76" maxMicrosecondsPerInvocation="216" standardDeviationMicrosecondsPerInvocation="36"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="28" invocations="54" avgMicrosecondsPerInvocation="535" maxMicrosecondsPerInvocation="4456" standardDeviationMicrosecondsPerInvocation="913"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="24" invocations="54" avgMicrosecondsPerInvocation="460" maxMicrosecondsPerInvocation="2971" standardDeviationMicrosecondsPerInvocation="750"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="18" invocations="175" avgMicrosecondsPerInvocation="104" maxMicrosecondsPerInvocation="952" standardDeviationMicrosecondsPerInvocation="117"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="11" invocations="491" avgMicrosecondsPerInvocation="23" maxMicrosecondsPerInvocation="513" standardDeviationMicrosecondsPerInvocation="40"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="11" invocations="29" avgMicrosecondsPerInvocation="380" maxMicrosecondsPerInvocation="3208" standardDeviationMicrosecondsPerInvocation="776"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1551979895410" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

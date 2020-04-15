@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.1.10" sequence="1" timestamp="1551979886054" analysisTimestamp="1551979880993" release="">
+  <Project projectName="trangord-assignment1">
+    <Jar>C:\Users\trang\CSS-342\trangord-assignment1\bin</Jar>
+    <AuxClasspathEntry>C:\Users\trang\CSS-342\trangord-assignment1\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\trang\.p2\pool\plugins\org.junit_4.12.0.v201504281640\junit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\trang\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_201\lib\rt.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_201\lib\jce.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\trang\CSS-342\trangord-assignment1\src</SrcDir>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="program.Driver">
+      <SourceLine classname="program.Driver" sourcefile="Driver.java" sourcepath="program/Driver.java"/>
+    </Class>
+    <Method classname="program.Driver" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="program.Driver" start="28" end="46" startBytecode="0" endBytecode="267" sourcefile="Driver.java" sourcepath="program/Driver.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner"/>
+    </Method>
+    <SourceLine classname="program.Driver" start="28" end="28" startBytecode="7" endBytecode="7" sourcefile="Driver.java" sourcepath="program/Driver.java"/>
+    <SourceLine classname="program.Driver" start="28" end="28" startBytecode="7" endBytecode="7" sourcefile="Driver.java" sourcepath="program/Driver.java"/>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" first="1">
+    <Class classname="program.StackUtilities">
+      <SourceLine classname="program.StackUtilities" sourcefile="StackUtilities.java" sourcepath="program/StackUtilities.java"/>
+    </Class>
+    <Method classname="program.StackUtilities" name="decimalToBinary" signature="(I)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="program.StackUtilities" start="29" end="46" startBytecode="0" endBytecode="228" sourcefile="StackUtilities.java" sourcepath="program/StackUtilities.java"/>
+    </Method>
+    <SourceLine classname="program.StackUtilities" start="44" end="44" startBytecode="46" endBytecode="46" sourcefile="StackUtilities.java" sourcepath="program/StackUtilities.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 7 Mar 2019 09:28:12 -0800" total_classes="7" referenced_classes="50" total_bugs="2" total_size="173" num_packages="4" java_version="1.8.0_201" vm_version="25.201-b09" cpu_seconds="4.31" clock_seconds="5.06" peak_mbytes="924.51" alloc_mbytes="1024.00" gc_seconds="0.02" priority_2="1" priority_1="1">
+    <PackageStats package="exceptions" total_bugs="0" total_types="1" total_size="5">
+      <ClassStats class="exceptions.EmptyCollectionException" sourceFile="EmptyCollectionException.java" interface="false" size="5" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="program" total_bugs="2" total_types="2" total_size="42" priority_2="1" priority_1="1">
+      <ClassStats class="program.Driver" sourceFile="Driver.java" interface="false" size="20" bugs="1" priority_1="1"/>
+      <ClassStats class="program.StackUtilities" sourceFile="StackUtilities.java" interface="false" size="22" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="structures" total_bugs="0" total_types="2" total_size="51">
+      <ClassStats class="structures.ArrayStack" sourceFile="ArrayStack.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="structures.StackADT" sourceFile="StackADT.java" interface="true" size="6" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="tests" total_bugs="0" total_types="2" total_size="75">
+      <ClassStats class="tests.ArrayStackTest" sourceFile="ArrayStackTest.java" interface="false" size="64" bugs="0"/>
+      <ClassStats class="tests.StackUtilitiesTest" sourceFile="StackUtilitiesTest.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="3271" invocations="2" avgMicrosecondsPerInvocation="1635915" maxMicrosecondsPerInvocation="2446141" standardDeviationMicrosecondsPerInvocation="810226"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="1039" invocations="7" avgMicrosecondsPerInvocation="148544" maxMicrosecondsPerInvocation="1037993" standardDeviationMicrosecondsPerInvocation="363116"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1551979886050" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

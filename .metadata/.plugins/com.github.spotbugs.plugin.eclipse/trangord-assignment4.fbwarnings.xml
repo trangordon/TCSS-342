@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.1.10" sequence="3" timestamp="1556137048601" analysisTimestamp="1556137045756" release="">
+  <Project projectName="trangord-assignment4">
+    <Jar>C:\Users\trang\CSS-342\trangord-assignment4\bin\applications\WordCount.class</Jar>
+    <AuxClasspathEntry>C:\Users\trang\CSS-342\trangord-assignment4\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\trang\.p2\pool\plugins\org.junit_4.12.0.v201504281640\junit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\trang\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_201\lib\rt.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_201\lib\jce.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\trang\CSS-342\trangord-assignment4\src</SrcDir>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="applications.WordCount">
+      <SourceLine classname="applications.WordCount" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+    </Class>
+    <Method classname="applications.WordCount" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="applications.WordCount" start="59" end="139" startBytecode="0" endBytecode="1104" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+    </Method>
+    <Method classname="java.io.FileReader" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileReader"/>
+    </Method>
+    <SourceLine classname="applications.WordCount" start="59" end="59" startBytecode="14" endBytecode="14" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+    <SourceLine classname="applications.WordCount" start="59" end="59" startBytecode="14" endBytecode="14" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="applications.WordCount">
+      <SourceLine classname="applications.WordCount" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+    </Class>
+    <Method classname="applications.WordCount" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="applications.WordCount" start="59" end="139" startBytecode="0" endBytecode="1104" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+    </Method>
+    <Method classname="java.io.FileWriter" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileWriter"/>
+    </Method>
+    <SourceLine classname="applications.WordCount" start="61" end="61" startBytecode="34" endBytecode="34" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+    <SourceLine classname="applications.WordCount" start="61" end="61" startBytecode="34" endBytecode="34" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="applications.WordCount">
+      <SourceLine classname="applications.WordCount" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+    </Class>
+    <Method classname="applications.WordCount" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="applications.WordCount" start="59" end="139" startBytecode="0" endBytecode="1104" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner"/>
+    </Method>
+    <SourceLine classname="applications.WordCount" start="68" end="68" startBytecode="70" endBytecode="70" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+    <SourceLine classname="applications.WordCount" start="68" end="68" startBytecode="70" endBytecode="70" sourcefile="WordCount.java" sourcepath="applications/WordCount.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="2">
+    <Class classname="applications.thest">
+      <SourceLine classname="applications.thest" start="3" end="3" sourcefile="thest.java" sourcepath="applications/thest.java"/>
+    </Class>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Wed, 24 Apr 2019 13:17:24 -0700" total_classes="1" referenced_classes="31" total_bugs="4" total_size="121" num_packages="1" java_version="1.8.0_201" vm_version="25.201-b09" cpu_seconds="11.53" clock_seconds="2.89" peak_mbytes="470.04" alloc_mbytes="1024.00" gc_seconds="0.10" priority_2="1" priority_1="3">
+    <PackageStats package="applications" total_bugs="4" total_types="2" total_size="121" priority_2="1" priority_1="3">
+      <ClassStats class="applications.WordCount" sourceFile="WordCount.java" interface="false" size="121" bugs="3" priority_1="3"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="939" invocations="2" avgMicrosecondsPerInvocation="469642" maxMicrosecondsPerInvocation="590822" standardDeviationMicrosecondsPerInvocation="121181"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="355" invocations="406" avgMicrosecondsPerInvocation="875" maxMicrosecondsPerInvocation="97997" standardDeviationMicrosecondsPerInvocation="5145"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="110" invocations="406" avgMicrosecondsPerInvocation="272" maxMicrosecondsPerInvocation="12296" standardDeviationMicrosecondsPerInvocation="868"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="105" invocations="31" avgMicrosecondsPerInvocation="3417" maxMicrosecondsPerInvocation="33421" standardDeviationMicrosecondsPerInvocation="6412"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="101" invocations="136" avgMicrosecondsPerInvocation="748" maxMicrosecondsPerInvocation="7564" standardDeviationMicrosecondsPerInvocation="1007"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="70" invocations="8" avgMicrosecondsPerInvocation="8869" maxMicrosecondsPerInvocation="33971" standardDeviationMicrosecondsPerInvocation="11181"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="70" invocations="31" avgMicrosecondsPerInvocation="2284" maxMicrosecondsPerInvocation="26172" standardDeviationMicrosecondsPerInvocation="4695"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="64" invocations="18" avgMicrosecondsPerInvocation="3609" maxMicrosecondsPerInvocation="6195" standardDeviationMicrosecondsPerInvocation="1526"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="60" invocations="8" avgMicrosecondsPerInvocation="7588" maxMicrosecondsPerInvocation="21209" standardDeviationMicrosecondsPerInvocation="5952"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="55" invocations="31" avgMicrosecondsPerInvocation="1793" maxMicrosecondsPerInvocation="20358" standardDeviationMicrosecondsPerInvocation="3854"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="44" invocations="7" avgMicrosecondsPerInvocation="6320" maxMicrosecondsPerInvocation="14136" standardDeviationMicrosecondsPerInvocation="5495"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="44" invocations="7" avgMicrosecondsPerInvocation="6286" maxMicrosecondsPerInvocation="38243" standardDeviationMicrosecondsPerInvocation="13089"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1551979914468" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1551979914468" release="" codeSize="121" numClasses="1"/>
+    <AppVersion sequence="2" timestamp="1552496913306" release="" codeSize="3" numClasses="1"/>
+  </History>
+</BugCollection>

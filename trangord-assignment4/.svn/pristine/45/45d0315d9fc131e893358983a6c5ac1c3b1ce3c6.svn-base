@@ -1,0 +1,260 @@
+ gordon tran
+ assignment 4
+ tcss 342 
+ 
+
+package applications 
+
+import java io bufferedreader 
+import java io bufferedwriter 
+import java io filenotfoundexception 
+import java io filereader 
+import java io filewriter 
+import java io ioexception 
+import java util arraylist 
+import java util hashmap 
+import java util map 
+import java util scanner 
+import java util treemap 
+
+ 
+ the class wordcount 
+ 
+ author gordon tran
+ version winter 2019
+ 
+public final class wordcount 
+ 
+ the number of run time attempts 
+ private static final int run time attempt 1000 
+ 
+ the start time 
+ private static long starttime 
+ 
+ the end time 
+ private static long endtime 
+ 
+ the time elapsed 
+ private static long timeelapsed 
+ 
+ the best time 
+ private static long besttime integer max value 
+ 
+ the total time 
+ private static long totaltime 
+ 
+ private constructor 
+ private wordcount 
+ 
+
+ 
+ diver and converts file contents into list 
+ 
+ param theargs the arguments
+ throws ioexception signals that an i o exception has occurred 
+ 
+ public static void main final string theargs throws ioexception 
+ declare variables
+ final int freqword 
+ scanner console new scanner new bufferedreader new filereader ash txt 
+ scanner input 
+ final bufferedwriter out new bufferedwriter new filewriter temp txt 
+ final arraylist string list new arraylist string 
+ string line 
+ string processedline 
+ user input
+ file input
+ system out print file name to be word counted defaults to ash txt 
+ input new scanner system in 
+ try 
+ console new scanner new bufferedreader new filereader input next 
+ catch final filenotfoundexception e 
+ system out println invalid file defaulting to ash txt 
+ 
+ number of words input
+ do 
+ system out print number of most frequent words 
+ input new scanner system in 
+ while input hasnextint 
+ freqword input nextint 
+ appraise format and clean punctuation
+ while console hasnext 
+ line console nextline 
+ processedline line replaceall s s replaceall 
+ a za z0 9é 
+ tolowercase replaceall 
+ 
+ out write processedline n 
+ 
+ out close 
+ console new scanner new bufferedreader new filereader temp txt 
+ add words to list
+ while console hasnext 
+ list add console next 
+ 
+ 
+ console close 
+ input close 
+ 
+ running the programs and timing
+ treemap
+ printoutput treemapcount list freqword 
+ for int i 0 i run time attempt i 
+ starttime system nanotime 
+ testoutput treemapcount list freqword 
+ endtime system nanotime 
+ timeelapsed endtime starttime 
+ if timeelapsed besttime 
+ besttime timeelapsed 
+ 
+ totaltime totaltime timeelapsed 
+ 
+ totaltime totaltime run time attempt 
+ system out println average time for treemap over run time attempt runs 
+ nnanoseconds totaltime ns 
+ nmilliseconds totaltime 1000000 ms 
+ nbest time besttime ns 
+
+ reset
+ totaltime 0 
+ besttime integer max value 
+ 
+ hashmap
+ printoutput hashmapcount list freqword 
+ for int i 0 i run time attempt i 
+ starttime system nanotime 
+ testoutput hashmapcount list freqword 
+ endtime system nanotime 
+ timeelapsed endtime starttime 
+ if timeelapsed besttime 
+ besttime timeelapsed 
+ 
+ totaltime totaltime timeelapsed 
+ 
+ totaltime totaltime run time attempt 
+ system out println average time for hashmap over run time attempt runs 
+ nnanoseconds totaltime ns 
+ nmilliseconds totaltime 1000000 ms 
+ nbest time besttime ns 
+ 
+ 
+ 
+ 
+ uses a treemap to count frequency of words 
+ 
+ param thelist the list of words
+ return the map of words
+ 
+ public static map string integer treemapcount final arraylist string thelist 
+ declare variables
+ final map string integer countmap new treemap string integer 
+ string buffer 
+ int index 0 
+ add words to map
+ while index thelist size 
+ buffer thelist get index 
+ if countmap containskey buffer 
+ countmap put buffer countmap get buffer 1 
+ else 
+ countmap put buffer 1 
+ 
+ index 
+ 
+ 
+ return countmap 
+ 
+ 
+ 
+ uses a hashmap to count frequency of words 
+ 
+ param thelist the list of words
+ return the map of words
+ 
+ public static map string integer hashmapcount final arraylist string thelist 
+ declare variables
+ final map string integer countmap new hashmap string integer 
+ string buffer 
+ int index 0 
+ add words to map
+ while index thelist size 
+ buffer thelist get index 
+ if countmap containskey buffer 
+ countmap put buffer countmap get buffer 1 
+ else 
+ countmap put buffer 1 
+ 
+ index 
+ 
+ 
+ return countmap 
+ 
+ 
+ 
+ output number of words and most frequent words 
+ 
+ param themap the map of words
+ param thefreq the number of most frequent numbers
+ 
+ public static void printoutput final map string integer themap final int thefreq 
+ declare variable
+ final map string integer tempmap themap 
+ map entry string integer maxentry null 
+ string tmpstr 
+ system out println number of words tempmap size 
+ look for entry with largest value
+ for int j 0 j thefreq j 
+ for map entry string integer entry tempmap entryset 
+ if maxentry null entry getvalue compareto maxentry getvalue 0 
+ maxentry entry 
+ 
+ 
+
+ try 
+ print and remove entry from map
+ tmpstr maxentry tostring 
+ tempmap remove maxentry getkey 
+ system out println tmpstr 
+ catch final nullpointerexception e 
+ ends method early if number of words requested is more than words in map
+ system out println requested number exceeds amount of words 
+ return 
+ 
+ 
+ 
+ maxentry null 
+ 
+ 
+ 
+ 
+ test speed of printoutput without printing 
+ 
+ param themap the map of words
+ param thefreq the number of most frequent numbers
+ 
+ public static void testoutput final map string integer themap final int thefreq 
+ declare variable
+ final map string integer tempmap themap 
+ map entry string integer maxentry null 
+ string tmpstr 
+ look for entry with largest value
+ for int j 0 j thefreq j 
+ for map entry string integer entry tempmap entryset 
+ if maxentry null entry getvalue compareto maxentry getvalue 0 
+ maxentry entry 
+ 
+ 
+
+ try 
+ print and remove entry from map
+ tmpstr maxentry tostring 
+ tempmap remove maxentry getkey 
+ catch final nullpointerexception e 
+ ends method early if number of words requested is more than words in map
+ return 
+ 
+ 
+ 
+ maxentry null 
+ 
+ 
+ 
